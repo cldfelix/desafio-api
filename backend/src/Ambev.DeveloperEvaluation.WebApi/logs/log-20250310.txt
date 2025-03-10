@@ -1,0 +1,32 @@
+2025-03-10 16:01:34.579 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-10 16:01:34.637 -03:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using '/home/fcadi/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-10 16:01:34.665 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5119
+2025-03-10 16:01:34.665 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-10 16:01:34.666 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-10 16:01:34.666 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /home/fcadi/Documentos/repos/desafio-api/backend/src/Ambev.DeveloperEvaluation.WebApi
+2025-03-10 16:01:40.730 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2025-03-10 16:01:40.810 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/ - 404 0 null 81.4691ms
+2025-03-10 16:01:40.820 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/, Response status code: 404
+2025-03-10 16:01:47.178 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger - null null
+2025-03-10 16:01:47.182 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger - 301 0 null 3.3584ms
+2025-03-10 16:01:47.189 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.html - null null
+2025-03-10 16:01:47.267 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.html - 200 null text/html;charset=utf-8 77.4463ms
+2025-03-10 16:01:47.280 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui.css - null null
+2025-03-10 16:01:47.281 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.css - null null
+2025-03-10 16:01:47.281 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-10 16:01:47.281 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-bundle.js - null null
+2025-03-10 16:01:47.281 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.js - null null
+2025-03-10 16:01:47.284 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.js - 200 null application/javascript;charset=utf-8 2.9247ms
+2025-03-10 16:01:47.294 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-03-10 16:01:47.294 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.css - 200 202 text/css 13.541ms
+2025-03-10 16:01:47.299 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-03-10 16:01:47.299 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-03-10 16:01:47.302 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-10 16:01:47.302 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-standalone-preset.js - 200 230293 text/javascript 21.5347ms
+2025-03-10 16:01:47.302 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui.css - 200 152034 text/css 22.3812ms
+2025-03-10 16:01:47.303 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-bundle.js - 200 1452753 text/javascript 21.9352ms
+2025-03-10 16:01:47.486 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2025-03-10 16:01:47.492 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/favicon-32x32.png - null null
+2025-03-10 16:01:47.492 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-03-10 16:01:47.492 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/favicon-32x32.png - 200 628 image/png 0.3345ms
+2025-03-10 16:01:47.531 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.4388ms
