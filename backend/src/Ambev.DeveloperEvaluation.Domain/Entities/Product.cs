@@ -13,7 +13,7 @@ public partial class User
             Price = price;
             Stock = stock;
         }
-        public string? Name { get; private set; }
+        public string Name { get; private set; }
         public string? Description { get; private set; }
         public decimal Price { get; private set; }
         public uint Stock { get; private set; }
