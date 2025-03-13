@@ -1,5 +1,6 @@
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
@@ -19,13 +20,23 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+         return await _context.Products.ToListAsync(cancellationToken);
     }
 
-    public Task<Product?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+      var procuct =  await _context.Products.FindAsync(id, cancellationToken);
+        if (procuct == null)
+            return false;
+        _context.Products.Remove(procuct);
+         await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public async Task<Product?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await _context.Products.FindAsync(id, cancellationToken);
     }
 }
