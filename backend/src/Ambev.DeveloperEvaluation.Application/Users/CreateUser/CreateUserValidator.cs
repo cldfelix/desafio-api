@@ -4,9 +4,6 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Application.Users.CreateUser;
 
-/// <summary>
-/// Validator for CreateUserCommand that defines validation rules for user creation command.
-/// </summary>
 public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 {
     /// <summary>

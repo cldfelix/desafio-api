@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
+
+
 /// <summary>
 /// Implementation of IUserRepository using Entity Framework Core
 /// </summary>

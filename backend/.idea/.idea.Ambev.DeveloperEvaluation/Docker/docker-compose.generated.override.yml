@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  ambev.developerevaluation.webapi:
+    build:
+      context: "/home/fcadi/Documentos/repos/desafio-api/backend"
+      dockerfile: "src/Ambev.DeveloperEvaluation.WebApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Ambev.DeveloperEvaluation.WebApi.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "ambevdeveloperevaluationwebapi:dev"
+    ports: []
+    volumes:
+    - "/home/fcadi/Documentos/repos/desafio-api/backend/src/Ambev.DeveloperEvaluation.WebApi:/app:rw"
+    - "/home/fcadi/Documentos/repos/desafio-api/backend:/src:rw"
+    - "/home/fcadi/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"

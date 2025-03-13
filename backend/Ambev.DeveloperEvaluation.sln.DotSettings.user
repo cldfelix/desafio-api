@@ -1,0 +1,19 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=15baf044_002D198e_002D4f88_002D843a_002D06447342969e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Stock_Must_Be_Expected #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;ProjectFile&gt;54E6E012-F460-4A2B-95C5-27A2EF18A713/d:Domain/d:Entities/f:ProductTest.cs&lt;/ProjectFile&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c0a55703_002D4a41_002D47f8_002D9ffd_002D48de0df40d60/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Stock_Must_Be_Expected #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::54E6E012-F460-4A2B-95C5-27A2EF18A713::net8.0::Ambev.DeveloperEvaluation.Unit.Domain.Entities.ProductTest.Stock_Must_Be_Expected&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c62da7da_002Dc91b_002D4e23_002Dbda1_002Dfcc1ee79a382/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Stock_Must_Be_Expected #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::54E6E012-F460-4A2B-95C5-27A2EF18A713::net8.0::Ambev.DeveloperEvaluation.Unit.Domain.Entities.ProductTest.Stock_Must_Be_Expected&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc15b982_002D0885_002D43b4_002Da360_002D160ad8d1ec73/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Stock_Must_Be_Expected" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::54E6E012-F460-4A2B-95C5-27A2EF18A713::net8.0::Ambev.DeveloperEvaluation.Unit.Domain.Entities.ProductTest.Stock_Must_Be_Expected&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

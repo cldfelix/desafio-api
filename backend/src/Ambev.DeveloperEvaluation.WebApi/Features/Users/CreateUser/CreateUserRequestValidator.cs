@@ -31,3 +31,6 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest>
         RuleFor(user => user.Role).NotEqual(UserRole.None);
     }
 }
+
+
+

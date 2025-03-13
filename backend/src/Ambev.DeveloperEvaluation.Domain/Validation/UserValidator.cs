@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Domain.Validation;
 
-public class UserValidator : AbstractValidator<User>
+public partial class UserValidator : AbstractValidator<User>
 {
     public UserValidator()
     {
@@ -29,4 +29,5 @@ public class UserValidator : AbstractValidator<User>
             .NotEqual(UserRole.None)
             .WithMessage("User role cannot be None.");
     }
+    
 }

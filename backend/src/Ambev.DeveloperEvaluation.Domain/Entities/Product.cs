@@ -1,11 +1,13 @@
 using Ambev.DeveloperEvaluation.Domain.Common;
+using Ambev.DeveloperEvaluation.Domain.Enums;
 
 namespace Ambev.DeveloperEvaluation.Domain.Entities;
 
+    /// <summary>
+    /// Represents a product in the system.
+    /// </summary>
 
-public partial class User
-{
-    public class Product: BaseEntity {
+    public partial class Product: BaseEntity {
         public Product(string name, string description, decimal price, uint stock)
         {
             Name = name;
@@ -13,11 +15,41 @@ public partial class User
             Price = price;
             Stock = stock;
         }
+
+        /// <summary>
+        /// The name of the product.
+        /// Must be string with max length of 50 characters. 
+        /// </summary>
         public string Name { get; private set; }
+
+        /// <summary>
+        /// The description of the product.
+        /// Must be string with max length of 200 characters.
+        /// </summary>
         public string? Description { get; private set; }
+
+        /// <summary>
+        /// The price of the product.
+        /// Must be a decimal number.
+        /// </summary>
         public decimal Price { get; private set; }
+
+        /// <summary>
+        /// The stock of the product.
+        /// Must be an unsigned integer.
+        /// </summary>
         public uint Stock { get; private set; }
 
-        
+        /// <summary>
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public uint UpdateStock(HandleItem action, uint amount)
+        {
+            if (action == HandleItem.Remove && Stock < amount)
+                return Stock;
+            
+            return action == HandleItem.Add ?  Stock += amount : Stock -= amount;
+        }
     }
-}

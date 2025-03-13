@@ -7,9 +7,6 @@ using Ambev.DeveloperEvaluation.Common.Security;
 
 namespace Ambev.DeveloperEvaluation.Application.Users.CreateUser;
 
-/// <summary>
-/// Handler for processing CreateUserCommand requests
-/// </summary>
 public class CreateUserHandler : IRequestHandler<CreateUserCommand, CreateUserResult>
 {
     private readonly IUserRepository _userRepository;
