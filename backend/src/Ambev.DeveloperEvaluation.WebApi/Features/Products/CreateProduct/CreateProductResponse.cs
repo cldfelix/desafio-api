@@ -1,8 +1,5 @@
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Users.CreateUser;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
 
-/// <summary>
-/// API response model for CreateUser operation
-/// </summary>
 
 public class CreateProductResponse
 {

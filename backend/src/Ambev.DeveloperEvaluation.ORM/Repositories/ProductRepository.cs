@@ -5,9 +5,18 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    public Task<Product> CreateAsync(Product product, CancellationToken cancellationToken = default)
+    private readonly DefaultContext _context;
+    
+    public ProductRepository(DefaultContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public async Task<Product> CreateAsync(Product product, CancellationToken cancellationToken = default)
+    {
+        await _context.Products.AddAsync(product, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+        return product;
     }
 
     public Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
