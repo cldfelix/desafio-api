@@ -25,7 +25,7 @@ public partial class UserConfiguration
             builder.Property(i => i.Quantity).HasColumnType("int");
             builder.Property(i => i.UnitPrice).HasColumnType("decimal(10,2)");
             builder.Property(i => i.Discount).HasColumnType("decimal(10,2)");
-            builder.Property(i => i.TotalAmount).HasColumnType("decimal(10,2)");
+            builder.Property(i => i.TotalAmountItem).HasColumnType("decimal(10,2)");
          
         }
         

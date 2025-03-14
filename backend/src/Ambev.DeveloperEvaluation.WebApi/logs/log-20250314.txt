@@ -1,0 +1,35 @@
+2025-03-14 07:17:09.963 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-14 07:17:10.044 -03:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using '/home/fcadi/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-14 07:17:10.078 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5119
+2025-03-14 07:17:10.078 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-14 07:17:10.078 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-14 07:17:10.078 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /home/fcadi/Documentos/repos/desafio-api/backend/src/Ambev.DeveloperEvaluation.WebApi
+2025-03-14 07:17:10.745 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.html - null null
+2025-03-14 07:17:10.797 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.html - 200 null text/html;charset=utf-8 52.0987ms
+2025-03-14 07:17:10.803 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-bundle.js - null null
+2025-03-14 07:17:10.803 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.js - null null
+2025-03-14 07:17:10.804 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.js - 200 null application/javascript;charset=utf-8 1.858ms
+2025-03-14 07:17:10.813 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-14 07:17:10.814 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/swagger-ui-bundle.js - 200 1452753 text/javascript 11.501ms
+2025-03-14 07:17:10.926 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2025-03-14 07:17:10.995 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 68.7458ms
+2025-03-14 07:17:48.513 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/add-item - application/json 212
+2025-03-14 07:17:48.563 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 07:17:48.603 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "UpdateSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSaleRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 07:17:49.127 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 07:17:49.998 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (130ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Password", u."Phone", u."Role", u."Status", u."UpdatedAt", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-03-14 07:17:50.098 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Description", p."Name", p."Price", p."Stock"
+FROM "Products" AS p
+WHERE p."Id" = @__get_Item_0
+LIMIT 1
+2025-03-14 07:17:50.165 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 1032.5019ms.
+2025-03-14 07:17:50.175 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale.UpdateSaleResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 07:17:50.194 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) in 1584.0563ms
+2025-03-14 07:17:50.196 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 07:17:50.214 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 1700.974ms
+2025-03-14 07:24:22.304 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
