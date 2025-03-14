@@ -2,10 +2,10 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale;
 
-public class UpdateSaleValidator : AbstractValidator<UpdateSaleRequest>
+public class UpdateSaleRequestValidator : AbstractValidator<UpdateSaleRequest>
 {
 
-    public UpdateSaleValidator()
+    public UpdateSaleRequestValidator()
     {
         RuleFor(sale => sale.Customer).NotEmpty()
             .Must(BeAValidGuid).WithMessage("Invalid guid");

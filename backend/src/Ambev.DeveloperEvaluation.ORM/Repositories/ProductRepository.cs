@@ -20,6 +20,14 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
+    public async Task<Product> UpdateAsync(Product product, CancellationToken cancellationToken = default)
+    {
+        _context.Products.Update(product);
+        await _context.SaveChangesAsync(cancellationToken);
+        return product;
+        
+    }
+
     public async Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default)
     {
          return await _context.Products.ToListAsync(cancellationToken);

@@ -1,6 +1,7 @@
 using Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 using Ambev.DeveloperEvaluation.Application.Products.GetAllProduct;
 using Ambev.DeveloperEvaluation.Application.Products.GetProduct;
+using Ambev.DeveloperEvaluation.Application.Products.UpdateProduct;
 using Ambev.DeveloperEvaluation.Application.Users.GetUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Ambev.DeveloperEvaluation.WebApi.Features.Users.CreateUser;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetListProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProduct;
+using Ambev.DeveloperEvaluation.WebApi.Features.Products.UpdateProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Users.GetUser;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products;
@@ -33,7 +35,7 @@ public class ProductsController : BaseController
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request,
         CancellationToken cancellationToken)
     {
-        var validator = new CreateProductValidator();
+        var validator = new CreateProductRequestValidator();
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
         if (!validationResult.IsValid)
@@ -47,6 +49,29 @@ public class ProductsController : BaseController
             Success = true,
             Message = "Product created successfully",
             Data = _mapper.Map<CreateProductResponse>(response)
+        });
+    }
+    
+    [HttpPut("{id}")]
+    [ProducesResponseType(typeof(ApiResponseWithData<UpdateProductResponse>), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> CreateProduct( [FromRoute] Guid id, [FromBody] UpdateProductRequest request,
+        CancellationToken cancellationToken)
+    {
+        var validator = new UpdateProductRequestValidator();
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+        if (!validationResult.IsValid)
+            return BadRequest(validationResult.Errors);
+
+        var command = _mapper.Map<UpdateProductCommand>(request);
+        var response = await _mediator.Send(command, cancellationToken);
+
+        return Created(string.Empty, new ApiResponseWithData<UpdateProductResponse>
+        {
+            Success = true,
+            Message = "Product updated successfully",
+            Data = _mapper.Map<UpdateProductResponse>(response)
         });
     }
     

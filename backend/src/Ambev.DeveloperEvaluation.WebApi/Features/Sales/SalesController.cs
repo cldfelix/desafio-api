@@ -76,7 +76,7 @@ public class SalesController : BaseController
         {
             Success = true,
             Message = "Sale closed successfully",
-            Data = saleDb
+            Data = null
         });
     }
 
@@ -85,7 +85,7 @@ public class SalesController : BaseController
     [ProducesResponseType(typeof(ApiResponseWithData<CreateSaleResponse>), StatusCodes.Status201Created)]
     public async Task<IActionResult> UpdateSale([FromBody] UpdateSaleRequest request, CancellationToken cancellationToken)
     {
-        var validator = new UpdateSaleValidator();
+        var validator = new UpdateSaleRequestValidator();
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
         
         if (!validationResult.IsValid)
@@ -106,7 +106,7 @@ public class SalesController : BaseController
         if (item is null)
         {
             item = new Item(request.Product, product.Name, request.Quantity, product.Price);
-            saleDb.AddItem(item, request.Action);
+            //saleDb.AddItem(item, request.Action);
         }
         else
         {
@@ -115,7 +115,7 @@ public class SalesController : BaseController
             item.UpdateQuantity(request.Quantity, request.Action);
         }
 
-        saleDb.CalculateAmmount();
+        //saleDb.CalculateAmmount();
         var result  =  await _redisService.UpdateAsync<UpdateSaleResponse>(request.SaleId.ToString(), saleDb, cancellationToken);
       
         return Created(string.Empty, new ApiResponseWithData<UpdateSaleResponse>
