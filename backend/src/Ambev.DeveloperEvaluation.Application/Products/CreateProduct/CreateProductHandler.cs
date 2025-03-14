@@ -6,10 +6,6 @@ using MediatR;
 
 namespace Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 
-/// <summary>
-/// Handler for processing CreateUserCommand requests
-/// </summary>
-
 public class CreateProductHandler: IRequestHandler<CreateProductCommand, CreateProductResult>
 {
     private readonly IProductRepository _productRepository;

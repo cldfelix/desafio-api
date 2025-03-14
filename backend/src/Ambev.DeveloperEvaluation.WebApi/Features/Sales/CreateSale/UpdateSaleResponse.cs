@@ -14,7 +14,6 @@ public class UpdateSaleResponse
     public virtual List<Item> Items { get;  set; }
     public decimal TotalAmount { get;  set; }
     public bool IsCancelled { get; set; }
-    
     public void CalculateAmmount()
     {
         foreach (var item in Items)

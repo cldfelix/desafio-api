@@ -20,6 +20,7 @@ public class SalesController : BaseController
 {
     private readonly ILogger<SalesController> _logger;
     private readonly IUserRepository _userRepository;
+    private readonly IProductRepository _productRepository;
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
     private readonly IRedisService _redisService;
@@ -29,13 +30,15 @@ public class SalesController : BaseController
         IMediator mediator, 
         IMapper mapper, 
         IRedisService redisService, 
-        IUserRepository userRepository)
+        IUserRepository userRepository, 
+        IProductRepository productRepository)
     {
         _logger = logger;
         _mediator = mediator;
         _mapper = mapper;
         _redisService = redisService;
         _userRepository = userRepository;
+        _productRepository = productRepository;
     }
 
 
@@ -68,9 +71,11 @@ public class SalesController : BaseController
         if (saleDb is null)
             return BadRequest("Sale not found");
 
-        _= await _redisService.RemoveAsync(saleId.ToString(), cancellationToken);
-        
-        // salvar venda em db
+        foreach (var produto in saleDb.Items)
+        {
+            
+        }
+
 
         return Created(string.Empty, new ApiResponseWithData<UpdateSaleResponse>
         {

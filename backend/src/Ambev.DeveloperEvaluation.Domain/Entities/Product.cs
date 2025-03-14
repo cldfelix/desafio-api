@@ -20,25 +20,25 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
         /// The name of the product.
         /// Must be string with max length of 50 characters. 
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The description of the product.
         /// Must be string with max length of 200 characters.
         /// </summary>
-        public string? Description { get; private set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// The price of the product.
         /// Must be a decimal number.
         /// </summary>
-        public decimal Price { get; private set; }
+        public decimal Price { get; set; }
 
         /// <summary>
         /// The stock of the product.
         /// Must be an unsigned integer.
         /// </summary>
-        public uint Stock { get; private set; }
+        public uint Stock { get;  set; }
 
         /// <summary>
         /// </summary>

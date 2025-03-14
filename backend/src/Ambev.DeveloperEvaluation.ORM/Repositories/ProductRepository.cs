@@ -35,6 +35,18 @@ public class ProductRepository : IProductRepository
         return true;
     }
 
+    public async Task<Product> UpdateByIdAsync(Product product, CancellationToken cancellationToken)
+    {
+        var p =  await _context.Products.FirstOrDefaultAsync(x=> x.Id == product.Id, cancellationToken);
+        if (p == null)
+            throw new KeyNotFoundException($"Product with ID {product.Id} not found");
+        p.Name = product.Name;
+        p.Price = product.Price;
+        p.Description = product.Description;
+        await _context.SaveChangesAsync(cancellationToken);
+        return p;
+    }
+
     public async Task<Product?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _context.Products.FindAsync(id, cancellationToken);
