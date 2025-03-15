@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Ambev.DeveloperEvaluation.Domain.Services;
+using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 
 namespace Ambev.DeveloperEvaluation.Application.Services;
@@ -7,10 +8,10 @@ namespace Ambev.DeveloperEvaluation.Application.Services;
 public class RedisService : IRedisService
 {
     private readonly IDatabase _db;
-    
-    public RedisService(string connectionString = "localhost:6379,password=yourpassword")
+
+    public RedisService(IConfiguration configuration)
     {
-        var redis = ConnectionMultiplexer.Connect(connectionString);
+        var redis = ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis"));
         _db = redis.GetDatabase();
     }
     

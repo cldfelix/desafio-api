@@ -19,7 +19,6 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales;
 
 [ApiController]
 [Route("api/[controller]")]
-
 public class SalesController : BaseController
 {
     private readonly ILogger<SalesController> _logger;
@@ -103,8 +102,6 @@ public class SalesController : BaseController
         if (product is null || product.Stock < request.Quantity)
             return BadRequest("Invalid Product or Insufficient Stock");
         
-        // verificar a qtd max de 20 itens de um mesmo produto
-        
         var saleComand = _mapper.Map<GetSalesCommand>(request.SaleId);
         var sale = await _mediator.Send(saleComand, cancellationToken);
         if (sale is null)
@@ -116,7 +113,6 @@ public class SalesController : BaseController
         
        
         var updateComand = _mapper.Map<UpdateSalesCommand>(request);
-        
         var updatedSale  =  await _mediator.Send(updateComand, cancellationToken);
       
         return Created(string.Empty, new ApiResponseWithData<UpdateSalesResponse>
