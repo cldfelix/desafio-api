@@ -7,4 +7,5 @@ public interface ISalesRepository{
     Task<Sales> UpdateAsync(Sales sales, CancellationToken cancellationToken = default);
     Task<Sales?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
     Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<Sales> CreateAtDbAsync(Sales saleDb, CancellationToken cancellationToken = default);
 }

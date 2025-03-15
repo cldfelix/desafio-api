@@ -1,86 +1,81 @@
-# Developer Evaluation Project
+# Setup Necessario
+1-  Salve o conteudo abaixo em  um arquivo `docker-compose.yml` que inclui Redis, PostgreSQL e RabbitMQ:
 
-`READ CAREFULLY`
 
-## Instructions
-**The test below will have up to 7 calendar days to be delivered from the date of receipt of this manual.**
+```yaml
+version: '3.8'
 
-- The code must be versioned in a public Github repository and a link must be sent for evaluation once completed
-- Upload this template to your repository and start working from it
-- Read the instructions carefully and make sure all requirements are being addressed
-- The repository must provide instructions on how to configure, execute and test the project
-- Documentation and overall organization will also be taken into consideration
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-## Use Case
-**You are a developer on the DeveloperStore team. Now we need to implement the API prototypes.**
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
 
-As we work with `DDD`, to reference entities from other domains, we use the `External Identities` pattern with denormalization of entity descriptions.
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: rabbitmq_container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: your_username
+      RABBITMQ_DEFAULT_PASS: your_password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
 
-Therefore, you will write an API (complete CRUD) that handles sales records. The API needs to be able to inform:
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+```
 
-* Sale number
-* Date when the sale was made
-* Customer
-* Total sale amount
-* Branch where the sale was made
-* Products
-* Quantities
-* Unit prices
-* Discounts
-* Total amount for each item
-* Cancelled/Not Cancelled
 
-It's not mandatory, but it would be a differential to build code for publishing events of:
-* SaleCreated
-* SaleModified
-* SaleCancelled
-* ItemCancelled
+2-  Execute o comando 
+```bash
+  docker-compose up -d
+```
+Este arquivo define três serviços: `postgres`, `redis` e `rabbitmq`. Cada serviço usa a imagem mais recente disponível e mapeia as portas apropriadas do contêiner para o host. Além disso, cada serviço tem um volume dedicado para persistir os dados.
 
-If you write the code, **it's not required** to actually publish to any Message Broker. You can log a message in the application log or however you find most convenient.
 
-### Business Rules
 
-* Purchases above 4 identical items have a 10% discount
-* Purchases between 10 and 20 identical items have a 20% discount
-* It's not possible to sell above 20 identical items
-* Purchases below 4 items cannot have a discount
+# Base de dados iniciais
 
-These business rules define quantity-based discounting tiers and limitations:
+1- Criar o database utilizado
+```SQL
+  create database "teste-ambev";
+```
 
-1. Discount Tiers:
-    - 4+ items: 10% discount
-    - 10-20 items: 20% discount
+2- executar o comando abaixo dentro diretorio Ambev.DeveloperEvaluation.WebApi
+```BASH
+  dotnet ef database update -v 
+```
 
-2. Restrictions:
-    - Maximum limit: 20 items per product
-    - No discounts allowed for quantities below 4 items
+3- Popular algumas tabelas com dados iniciais usando o script abaixo
+```SQL
 
-## Overview
-This section provides a high-level overview of the project and the various skills and competencies it aims to assess for developer candidates.
+    INSERT INTO public."Users" ("Id", "Username", "Email", "Phone", "Password", "Role", "Status", "CreatedAt", "UpdatedAt") VALUES ('35d6f2bf-b7e1-4513-91c3-800c1e29513c', 'teste', 'teste@uol.com', '19995460517', '$2a$11$K9oScu2pDq/KLIvrqvVExOPgr2Nm1GIZQWwhVkNG9zHVNiHbrA4i.', 'Admin', 'Active', '2025-03-11 18:01:10.593819 +00:00', null);
 
-See [Overview](/.doc/overview.md)
 
-## Tech Stack
-This section lists the key technologies used in the project, including the backend, testing, frontend, and database components.
+    INSERT INTO public."Products" ("Id", "Name", "Description", "Price", "Stock") VALUES ('bb343980-5853-4791-a67f-845aebc92420', 'produto 3', 'descricao produto 3', 6.59, 18);
+    INSERT INTO public."Products" ("Id", "Name", "Description", "Price", "Stock") VALUES ('17c6ff5e-febe-4157-9e4a-5051f8ea0cfd', 'produto 1', 'descricao produto 1', 2.12, 16);
+    INSERT INTO public."Products" ("Id", "Name", "Description", "Price", "Stock") VALUES ('3203b373-332f-4186-ba4c-35f202655299', 'produto 4', 'descricao produto 4', 21.12, 0);
+    INSERT INTO public."Products" ("Id", "Name", "Description", "Price", "Stock") VALUES ('c302b74f-a249-4ef1-98e8-3201a01d7963', 'produto 2', 'descricao produto 2', 50.44, 36);
 
-See [Tech Stack](/.doc/tech-stack.md)
-
-## Frameworks
-This section outlines the frameworks and libraries that are leveraged in the project to enhance development productivity and maintainability.
-
-See [Frameworks](/.doc/frameworks.md)
-
-<!-- 
-## API Structure
-This section includes links to the detailed documentation for the different API resources:
-- [API General](./docs/general-api.md)
-- [Products API](/.doc/products-api.md)
-- [Carts API](/.doc/carts-api.md)
-- [Users API](/.doc/users-api.md)
-- [Auth API](/.doc/auth-api.md)
--->
-
-## Project Structure
-This section describes the overall structure and organization of the project files and directories.
-
-See [Project Structure](/.doc/project-structure.md)
+```
+# Testes Postman
+avaliacao-api-setup/Ambev-tests.postman_collection.json

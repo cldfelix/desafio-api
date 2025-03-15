@@ -1,6 +1,7 @@
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using Ambev.DeveloperEvaluation.Domain.Services;
+using StackExchange.Redis;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
@@ -31,7 +32,14 @@ public class SalesRepository : ISalesRepository
 
     public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+       return await _redisService.RemoveAsync(id.ToString(), cancellationToken);
+    }
+
+    public async Task<Sales> CreateAtDbAsync(Sales saleDb, CancellationToken cancellationToken = default)
+    {
+        _context.Sales.Add(saleDb);
+        await _context.SaveChangesAsync(cancellationToken);
+        return saleDb;
     }
 
     public async Task<Sales?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)

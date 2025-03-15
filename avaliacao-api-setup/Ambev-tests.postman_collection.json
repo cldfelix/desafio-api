@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "91576055-55d1-4582-bb8d-7815ef5b3818",
+		"name": "Ambev-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "93352"
+	},
+	"item": [
+		{
+			"name": "get-sale",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5119/api/sales/a30850d0-a506-465b-a365-7a93cb692632",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5119",
+					"path": [
+						"api",
+						"sales",
+						"a30850d0-a506-465b-a365-7a93cb692632"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-sale",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5119/api/sales/a30850d0-a506-465b-a365-7a93cb692632",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5119",
+					"path": [
+						"api",
+						"sales",
+						"a30850d0-a506-465b-a365-7a93cb692632"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-produtct-to-sale",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"saleId\": \"6e83dc92-d4fa-4d94-a437-eb104df9470e\",\n  \"customer\": \"35d6f2bf-b7e1-4513-91c3-800c1e29513c\",\n  \"customerName\": \"usuario teste\",\n  \"branch\": \"loja 10\",\n  \"product\": \"c302b74f-a249-4ef1-98e8-3201a01d7963\",\n  \"quantity\": 5,\n  \"action\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5119/api/sales/add-item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5119",
+					"path": [
+						"api",
+						"sales",
+						"add-item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "init-sale",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customer\": \"35d6f2bf-b7e1-4513-91c3-800c1e29513c\",\n  \"customerName\": \"Usuario de teste\",\n  \"branch\": \"loja 10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5119/api/sales/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5119",
+					"path": [
+						"api",
+						"sales",
+						"start"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

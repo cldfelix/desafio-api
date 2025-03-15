@@ -1,4 +1,5 @@
 using Ambev.DeveloperEvaluation.Application.Products.GetProduct;
+using Ambev.DeveloperEvaluation.Application.Products.UpdateProduct;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProduct;
 using AutoMapper;
@@ -11,6 +12,7 @@ public class GetProductRequestProfile : Profile
     {
         CreateMap<GetProductRequest, GetProductCommand>();
         CreateMap<GetProductResult, GetProductResponse>();
+        CreateMap<GetProductResult, UpdateProductCommand>();
         
     }
 }
