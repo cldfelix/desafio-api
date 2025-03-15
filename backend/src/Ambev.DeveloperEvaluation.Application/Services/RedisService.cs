@@ -11,7 +11,7 @@ public class RedisService : IRedisService
 
     public RedisService(IConfiguration configuration)
     {
-        var redis = ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis"));
+        var redis = ConnectionMultiplexer.Connect(configuration.GetConnectionString("RedisConnection"));
         _db = redis.GetDatabase();
     }
     

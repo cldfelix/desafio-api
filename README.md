@@ -55,12 +55,12 @@ Este arquivo define três serviços: `postgres`, `redis` e `rabbitmq`. Cada serv
 
 # Base de dados iniciais
 
-1- Criar o database utilizado
+1- Criar o database utilizada
 ```SQL
   create database "teste-ambev";
 ```
 
-2- executar o comando abaixo dentro diretorio Ambev.DeveloperEvaluation.WebApi
+2- Executar o comando abaixo dentro diretorio Ambev.DeveloperEvaluation.WebApi
 ```BASH
   dotnet ef database update -v 
 ```
