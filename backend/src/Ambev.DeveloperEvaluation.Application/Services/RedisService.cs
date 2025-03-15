@@ -1,7 +1,8 @@
 using System.Text.Json;
+using Ambev.DeveloperEvaluation.Domain.Services;
 using StackExchange.Redis;
 
-namespace Ambev.DeveloperEvaluation.Domain.Services;
+namespace Ambev.DeveloperEvaluation.Application.Services;
 
 public class RedisService : IRedisService
 {
@@ -22,10 +23,6 @@ public class RedisService : IRedisService
         using var document = JsonDocument.Parse(json.ToString());
         var jsonString = document.RootElement.GetRawText();
         return JsonSerializer.Deserialize<T>(jsonString);
-
-        //var json = await _db.StringGetAsync(key).ConfigureAwait(false);
-        //var r  = json.HasValue ? JsonSerializer.Deserialize<T>(json) : default;
-        //return r;
     }
 
     public async Task<T?> UpdateAsync<T>(string key, T value, CancellationToken cancellationToken = default)

@@ -3,9 +3,9 @@ using Ambev.DeveloperEvaluation.Domain.Enums;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale;
 
-public class CreateSaleResponse
+public class CreateSalesResponse
 {
-    public CreateSaleResponse(Guid customer, string customerName, string branch)
+    public CreateSalesResponse(Guid customer, string customerName, string branch)
     {
         SaleId = Guid.NewGuid();
         SaleDate = DateTime.Now;

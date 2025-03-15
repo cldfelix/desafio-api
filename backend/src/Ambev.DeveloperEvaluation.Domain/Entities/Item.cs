@@ -24,10 +24,9 @@ public partial class Item : BaseEntity
             >= 11 => TotalAmountItem * 0.2m,
             _ => Discount
         };
-        Discount = d;
-        
-        // entre 4 e 10 produtos 10%
-        // entre 11 e 20 produtos 20%
+        Discount = Quantity > 0
+            ? d
+            : 0;
     }
 
     private void AddQuantity(int quantity)
@@ -38,10 +37,10 @@ public partial class Item : BaseEntity
 
     private void RemoveQuantity(int quantity)
     {
-        if (Quantity > quantity)
+        if (Quantity >= quantity)
             Quantity -= quantity;
 
-        TotalAmountItem = Quantity * UnitPrice;
+        TotalAmountItem =    Quantity * UnitPrice;
     }
     
     public void UpdateQuantity(int quantity, HandleItem action)
@@ -50,9 +49,7 @@ public partial class Item : BaseEntity
             AddQuantity(quantity);
         else
             RemoveQuantity(quantity);
-        
-        
-        DiscountCalculator();
+      
     }
 
 
@@ -97,12 +94,13 @@ public partial class Item : BaseEntity
     /// <summary>
     /// Total amount of product
     /// </summary>
-    public decimal TotalAmountItem { get; set; }
+    public decimal TotalAmountItem { get; private set; }
 
 
     
     public void UpdateTotalAmount()
     {
         TotalAmountItem = UnitPrice * Quantity;
+        DiscountCalculator();
     }
 }

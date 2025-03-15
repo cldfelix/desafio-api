@@ -1,4 +1,7 @@
 using Ambev.DeveloperEvaluation.Application.Products.GetProduct;
+using Ambev.DeveloperEvaluation.Application.Sales.CreateSales;
+using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
+using Ambev.DeveloperEvaluation.Application.Sales.UpdateSales;
 using Ambev.DeveloperEvaluation.Application.Users.GetUser;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Enums;
@@ -6,6 +9,7 @@ using Ambev.DeveloperEvaluation.Domain.Repositories;
 using Ambev.DeveloperEvaluation.Domain.Services;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale;
+using Ambev.DeveloperEvaluation.WebApi.Features.Sales.GetSale;
 using Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale;
 using AutoMapper;
 using MediatR;
@@ -40,9 +44,9 @@ public class SalesController : BaseController
 
 
     [HttpPost("/start")]
-    [ProducesResponseType(typeof(ApiResponseWithData<CreateSaleResponse>), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ApiResponseWithData<CreateSalesResponse>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> StartSale([FromBody] CreateSaleRequest request,
+    public async Task<IActionResult> StartSale([FromBody] CreateSalesRequest request,
         CancellationToken cancellationToken)
     {
         var validator = new CreateSaleValidator(_userRepository);
@@ -50,21 +54,24 @@ public class SalesController : BaseController
 
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
+        
+        var command = _mapper.Map<CreateSalesCommand>(request);
+        var response = await _mediator.Send(command, cancellationToken);
 
-        return Created(string.Empty, new ApiResponseWithData<CreateSaleResponse>
+        return Created(string.Empty, new ApiResponseWithData<CreateSalesResponse>
         {
             Success = true,
             Message = "Sale started successfully",
-            Data = await CreateSaleRedis(request)
+            Data = _mapper.Map<CreateSalesResponse>(response)
         });
     }
     [HttpGet("/close-sale/{id}")]
-    [ProducesResponseType(typeof(ApiResponseWithData<UpdateSaleResponse>), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ApiResponseWithData<UpdateSalesResponse>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CloseSale([FromRoute] Guid saleId,
         CancellationToken cancellationToken)
     {
-        var saleDb =  await _redisService.GetAsync<UpdateSaleResponse>(saleId.ToString(), cancellationToken);
+        var saleDb =  await _redisService.GetAsync<UpdateSalesResponse>(saleId.ToString(), cancellationToken);
         if (saleDb is null)
             return BadRequest("Sale not found");
 
@@ -72,7 +79,7 @@ public class SalesController : BaseController
         
         // salvar venda em db
 
-        return Created(string.Empty, new ApiResponseWithData<UpdateSaleResponse>
+        return Created(string.Empty, new ApiResponseWithData<UpdateSalesResponse>
         {
             Success = true,
             Message = "Sale closed successfully",
@@ -82,58 +89,45 @@ public class SalesController : BaseController
 
     [HttpPost("/add-item")]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ApiResponseWithData<CreateSaleResponse>), StatusCodes.Status201Created)]
-    public async Task<IActionResult> UpdateSale([FromBody] UpdateSaleRequest request, CancellationToken cancellationToken)
+    [ProducesResponseType(typeof(ApiResponseWithData<UpdateSalesResponse>), StatusCodes.Status201Created)]
+    public async Task<IActionResult> UpdateSale([FromBody] UpdateSalesRequest request, CancellationToken cancellationToken)
     {
-        var validator = new UpdateSaleRequestValidator();
+        var validator = new UpdateSalesRequestValidator();
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
         
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
-        
 
         var commandProduct = _mapper.Map<GetProductCommand>(request.Product);
         var product = await _mediator.Send(commandProduct, cancellationToken);
         if (product is null || product.Stock < request.Quantity)
             return BadRequest("Invalid Product or Insufficient Stock");
         
-        var saleDb =  await _redisService.GetAsync<UpdateSaleResponse>(request.SaleId.ToString(), cancellationToken);
-        if (saleDb is null)
+        // verificar a qtd max de 20 itens de um mesmo produto
+        
+        var saleComand = _mapper.Map<GetSalesCommand>(request.SaleId);
+        var sale = await _mediator.Send(saleComand, cancellationToken);
+        if (sale is null)
             return BadRequest("Sale not found");
-        
-        var item = saleDb.Items.Find(i => i.ProductId == request.Product);    
-        
-        if (item is null)
-        {
-            item = new Item(request.Product, product.Name, request.Quantity, product.Price);
-            //saleDb.AddItem(item, request.Action);
-        }
-        else
-        {
-            if((item.Quantity + request.Quantity) > 20 && request.Action == HandleItem.Add)
-                return BadRequest("Maximum limit: 20 items per product");
-            item.UpdateQuantity(request.Quantity, request.Action);
-        }
 
-        //saleDb.CalculateAmmount();
-        var result  =  await _redisService.UpdateAsync<UpdateSaleResponse>(request.SaleId.ToString(), saleDb, cancellationToken);
+        var item = sale.Items.FirstOrDefault(i => i.ProductId == request.Product);
+        if (item is not null && item.Quantity + request.Quantity > 20  && request.Action == HandleItem.Add)
+            return BadRequest("Max quantity of 20 items per product reached");
+        
+       
+        var updateComand = _mapper.Map<UpdateSalesCommand>(request);
+        
+        var updatedSale  =  await _mediator.Send(updateComand, cancellationToken);
       
-        return Created(string.Empty, new ApiResponseWithData<UpdateSaleResponse>
+        return Created(string.Empty, new ApiResponseWithData<UpdateSalesResponse>
         {
             Success = true,
             Message = "Sale updated successfully",
-            Data = result
+            Data = _mapper.Map<UpdateSalesResponse>(updatedSale)
         });
         
     }
-    
 
-    private async Task<CreateSaleResponse> CreateSaleRedis(CreateSaleRequest request)
-    {
-        var sale = new CreateSaleResponse(request.Customer, request.CustomerName, request.Branch);
-        await _redisService.SetAsync<CreateSaleResponse>(sale.SaleId.ToString(), sale, TimeSpan.FromHours(6));
-        return sale;
-    }
 
 
 }

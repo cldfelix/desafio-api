@@ -1,8 +1,10 @@
 using Ambev.DeveloperEvaluation.Domain.Entities;
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale;
 
-public class UpdateSaleResponse
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.GetSale;
+
+public class GetSalesResponse
 {
+    public Guid SaleId { get; set; }
     public DateTime SaleDate { get; set; }
     public Guid Customer { get; set; }
     public string CustomerName { get; set; }

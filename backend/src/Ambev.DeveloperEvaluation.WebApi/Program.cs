@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Ambev.DeveloperEvaluation.Application;
+using Ambev.DeveloperEvaluation.Application.Services;
 using Ambev.DeveloperEvaluation.Common.HealthChecks;
 using Ambev.DeveloperEvaluation.Common.Logging;
 using Ambev.DeveloperEvaluation.Common.Security;
@@ -41,7 +42,7 @@ public class Program
                     b => b.MigrationsAssembly("Ambev.DeveloperEvaluation.ORM")
                 )
             );
-            builder.Services.AddSingleton<IRedisService, RedisService>();
+      
 
             builder.Services.AddJwtAuthentication(builder.Configuration);
 

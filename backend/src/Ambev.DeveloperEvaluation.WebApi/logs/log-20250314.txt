@@ -33,3 +33,99 @@ LIMIT 1
 2025-03-14 07:17:50.196 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
 2025-03-14 07:17:50.214 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 1700.974ms
 2025-03-14 07:24:22.304 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-14 14:23:56.290 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-14 14:23:56.395 -03:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using '/home/fcadi/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-14 14:23:56.424 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5119
+2025-03-14 14:23:56.424 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-14 14:23:56.424 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-14 14:23:56.424 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /home/fcadi/Documentos/repos/desafio-api/backend/src/Ambev.DeveloperEvaluation.WebApi
+2025-03-14 14:23:56.872 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.html - null null
+2025-03-14 14:23:56.928 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.html - 200 null text/html;charset=utf-8 56.8237ms
+2025-03-14 14:23:56.933 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.js - null null
+2025-03-14 14:23:56.936 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7988ms
+2025-03-14 14:23:57.006 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2025-03-14 14:23:57.157 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 151.2661ms
+2025-03-14 14:24:01.323 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-14 19:36:38.805 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-14 19:36:38.876 -03:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using '/home/fcadi/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-03-14 19:36:38.921 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5119
+2025-03-14 19:36:38.922 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-14 19:36:38.922 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-14 19:36:38.922 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /home/fcadi/Documentos/repos/desafio-api/backend/src/Ambev.DeveloperEvaluation.WebApi
+2025-03-14 19:36:39.414 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.html - null null
+2025-03-14 19:36:39.560 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.html - 200 null text/html;charset=utf-8 145.8731ms
+2025-03-14 19:36:39.571 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/index.js - null null
+2025-03-14 19:36:39.576 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/index.js - 200 null application/javascript;charset=utf-8 5.0534ms
+2025-03-14 19:36:39.890 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - null null
+2025-03-14 19:36:40.101 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5119/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 211.4363ms
+2025-03-14 19:36:46.203 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/start - application/json 109
+2025-03-14 19:36:46.218 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.StartSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:36:46.228 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "StartSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale.CreateSalesRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 19:36:46.700 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.StartSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 19:36:48.181 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (86ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Password", u."Phone", u."Role", u."Status", u."UpdatedAt", u."Username"
+FROM "Users" AS u
+WHERE u."Id" = @__id_0
+LIMIT 1
+2025-03-14 19:36:48.522 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.StartSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 1814.2809ms.
+2025-03-14 19:36:48.537 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSale.CreateSalesResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 19:36:48.565 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.StartSale (Ambev.DeveloperEvaluation.WebApi) in 2329.8352ms
+2025-03-14 19:36:48.567 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.StartSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:36:48.596 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/start - 201 null application/json; charset=utf-8 2393.4718ms
+2025-03-14 19:37:09.999 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/add-item - application/json 246
+2025-03-14 19:37:10.003 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:10.015 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "UpdateSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 19:37:10.043 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 19:37:10.217 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Description", p."Name", p."Price", p."Stock"
+FROM "Products" AS p
+WHERE p."Id" = @__get_Item_0
+LIMIT 1
+2025-03-14 19:37:10.323 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 279.4083ms.
+2025-03-14 19:37:10.324 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 19:37:10.329 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) in 313.5103ms
+2025-03-14 19:37:10.329 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:10.329 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 330.3713ms
+2025-03-14 19:37:13.680 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/add-item - application/json 246
+2025-03-14 19:37:13.682 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:13.682 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "UpdateSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 19:37:13.684 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 19:37:13.740 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Description", p."Name", p."Price", p."Stock"
+FROM "Products" AS p
+WHERE p."Id" = @__get_Item_0
+LIMIT 1
+2025-03-14 19:37:13.750 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 65.7148ms.
+2025-03-14 19:37:13.751 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 19:37:13.751 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) in 68.8993ms
+2025-03-14 19:37:13.751 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:13.752 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 71.93ms
+2025-03-14 19:37:15.492 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/add-item - application/json 246
+2025-03-14 19:37:15.493 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:15.493 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "UpdateSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 19:37:15.494 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 19:37:15.501 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Description", p."Name", p."Price", p."Stock"
+FROM "Products" AS p
+WHERE p."Id" = @__get_Item_0
+LIMIT 1
+2025-03-14 19:37:15.515 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 20.7163ms.
+2025-03-14 19:37:15.516 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 19:37:15.517 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) in 23.433ms
+2025-03-14 19:37:15.517 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:15.518 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 25.6403ms
+2025-03-14 19:37:16.441 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5119/add-item - application/json 246
+2025-03-14 19:37:16.441 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:16.441 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "UpdateSale", controller = "Sales"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateSale(Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesRequest, System.Threading.CancellationToken) on controller Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController (Ambev.DeveloperEvaluation.WebApi).
+2025-03-14 19:37:16.442 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) - Validation state: "Valid"
+2025-03-14 19:37:16.445 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Description", p."Name", p."Price", p."Stock"
+FROM "Products" AS p
+WHERE p."Id" = @__get_Item_0
+LIMIT 1
+2025-03-14 19:37:16.452 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 9.8544ms.
+2025-03-14 19:37:16.453 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'Ambev.DeveloperEvaluation.WebApi.Common.ApiResponseWithData`1[[Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSale.UpdateSalesResponse, Ambev.DeveloperEvaluation.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-14 19:37:16.454 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi) in 12.1578ms
+2025-03-14 19:37:16.454 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'Ambev.DeveloperEvaluation.WebApi.Features.Sales.SalesController.UpdateSale (Ambev.DeveloperEvaluation.WebApi)'
+2025-03-14 19:37:16.454 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5119/add-item - 201 null application/json; charset=utf-8 13.7466ms
+2025-03-14 19:39:31.271 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
